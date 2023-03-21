@@ -20,8 +20,20 @@ router.get('/', (req, res) => {
 
 // POST
 router.post('/', (req, res) => {
-    
-})
+    const taskToAdd = req.body;
+    const sqlText = `INSERT INTO "tasks" ("task", "completed")
+                    VALUES ($1, $2)`;
+    pool.query(sqlText, [taskToAdd.task, taskToAdd.completed])
+    .then((result) => {
+        res.sendStatus(201);
+    })
+    .catch((error) => {
+        console.log(`Error making database query ${sqlText}`, error);
+        res.sendStatus(500);
+    })
+});
+
+
 // PUT
 
 // DELETE
