@@ -35,7 +35,23 @@ router.post('/', (req, res) => {
 
 
 // PUT
-
+router.put('/:id', (req, res) => {
+    console.log(`In PUT Request /task`);
+    let taskId = req.params.id;
+    let taskToEdit = req.body;
+    let sqlText = 'UPDATE "tasks" SET '
+})
 // DELETE
-
+router.delete('/:id', (req, res) => {
+    console.log(req.params.id);
+    const deleteIndex = Number(req.params.id);
+    let sqlText = `DELETE FROM "tasks" WHERE "id" = $1`;
+    pool.query(sqlText, [deleteIndex])
+    .then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(`Error in DELETE ${error}`);
+        res.sendStatus(500);
+    })
+})
 module.exports = router;

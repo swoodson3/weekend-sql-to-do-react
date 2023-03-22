@@ -1,10 +1,14 @@
 import {useState} from 'react';
+import Header from '../Header/Header.jsx';
+import ToDoList from '../ToDoList/ToDoList.jsx';
+import './App.css';
 
 function App () {
   
   return (
     <div>
-      <h1>TO DO APP</h1>
+      <Header />
+      <ToDoList />
     </div>
   );
 
