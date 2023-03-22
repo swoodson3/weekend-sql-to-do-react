@@ -16,19 +16,7 @@ function ToDoList() {
             alert('Something went wrong!');
         })
     }
-    const  deleteList = () => {
-        console.log(`Clearing shopping list`);
-        axios.delete(`/tasks/deleteList`)
-        .then((response) => {
-            console.log(response);
-            taskList()
-        }).catch((error) => {
-                console.log(error)
-            alert('Something went wrong')
-        });
-    }
-
-
+   
    useEffect(() => {
     tasksList();
    }, []); 
@@ -49,6 +37,18 @@ function ToDoList() {
         alert('Something went wrong!');
     })
    }
+
+   const  deleteList = (id) => {
+    console.log(`Clearing shopping list`);
+    axios.delete(`tasks${id}`)
+    .then((response) => {
+        console.log(response);
+        tasksList()
+    }).catch((error) => {
+            console.log(error)
+        alert('Something went wrong')
+    });
+}
    return (
    <>
         <form onSubmit={submitForm}>
@@ -57,10 +57,10 @@ function ToDoList() {
                         value={taskList}
                         onChange={(e) => setTaskList(e.target.value)} />
                     <br />
-                    Completed:
+                    {/* Completed:
                     <input type="text"
                         value={completedTask}
-                        onChange={(e) => setCompletedTask(e.target.value)} />
+                        onChange={(e) => setCompletedTask(e.target.value)} /> */}
                     <input type="submit" />
                 </form>
                 <button onClick ={deleteList}>Clear</button> 
