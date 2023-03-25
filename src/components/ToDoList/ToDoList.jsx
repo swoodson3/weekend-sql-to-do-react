@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function ToDoList() {
     const [taskList, setTaskList ] = useState('');
-    const [completedTask, setCompletedTask] = useState('');
+    const [completedTask, setCompletedTask] = useState(false);
     const [listOfTasks, setListOfTasks] = useState([]);
 
     const tasksList = () => {
@@ -38,9 +38,22 @@ function ToDoList() {
     })
    }
 
+   const taskComplete = (id) => {
+    axios.put(`tasks/${id}`,)
+    .then((response) => {
+        console.log(response);
+        tasksList()
+    })
+    .catch((error) => {
+        console.log(`Error in PUT ${error}`);
+        alert('Something went wrong');
+    })
+   }
+
+
    const  deleteList = (id) => {
     console.log(`Clearing shopping list`);
-    axios.delete(`tasks${id}`)
+    axios.delete(`tasks/${id}`)
     .then((response) => {
         console.log(response);
         tasksList()
@@ -52,23 +65,18 @@ function ToDoList() {
    return (
    <>
         <form onSubmit={submitForm}>
-                    Task:
+                    Task Name:
                     <input type="text"
                         value={taskList}
                         onChange={(e) => setTaskList(e.target.value)} />
-                    <br />
-                    {/* Completed:
-                    <input type="text"
-                        value={completedTask}
-                        onChange={(e) => setCompletedTask(e.target.value)} /> */}
-                    <input type="submit" />
+                        <input type="submit" /> 
                 </form>
-                <button onClick ={deleteList}>Clear</button> 
             <ul> 
                 {
                     listOfTasks.map((task) => (
                         <li key={task.id}>
                             {task.task} - {task.completed} 
+                            <button onClick={(e) => deleteList(task.id)}> Delete </button>
                         </li>
                     ))
                 }

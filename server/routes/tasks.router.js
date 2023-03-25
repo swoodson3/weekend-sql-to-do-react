@@ -39,8 +39,21 @@ router.put('/:id', (req, res) => {
     console.log(`In PUT Request /task`);
     let taskId = req.params.id;
     let taskToEdit = req.body;
-    let sqlText = 'UPDATE "tasks" SET '
+    if (taskToEdit === true) {
+        let sqlText = `UPDATE "tasks" SET "completed" = $1 WHERE "id" = $2;`;
+        pool.query(sqlText, [taskToEdit, taskId])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log(`Error in PUT ${error}`);
+            res.sendStatus(500)
+        });
+    }
 })
+
+
+
 // DELETE
 router.delete('/:id', (req, res) => {
     console.log(req.params.id);
