@@ -1,5 +1,6 @@
-.App {
-  text-align: center;
+body {
+  background-image: url("./Images/ToDoListjpg.jpg");
+  background-size: cover;
 }
 
 .App-header {

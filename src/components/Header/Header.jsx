@@ -1,7 +1,10 @@
 function Header() {
     return (
-        <header>
-            <h1>To Do App</h1>
+        <header style={{ textAlign: 'center'}}>
+            <h1>
+                <span style={{ backgroundColor: 'white' }}>To Do App</span>
+            </h1>
+            <br/>
         </header>
     );
 }

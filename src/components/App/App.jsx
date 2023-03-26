@@ -3,9 +3,10 @@ import Header from '../Header/Header.jsx';
 import ToDoList from '../ToDoList/ToDoList.jsx';
 import './App.css';
 
+
 function App () {
   return (
-    <div>
+    <div className="App">
       <Header />
       <ToDoList />
     </div>
@@ -13,4 +14,4 @@ function App () {
 
 }
 
-export default App
+export default App;
