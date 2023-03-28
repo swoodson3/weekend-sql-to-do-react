@@ -8,6 +8,7 @@ const dateTime = luxon.DateTime;
 // GET
 router.get('/', (req, res) => {
     console.log('GET Request made for /tasks');
+    console.log('Seth')
     const sqlText = `SELECT * FROM "tasks" ORDER BY id DESC;`;
     pool.query(sqlText)
         .then((result) => {

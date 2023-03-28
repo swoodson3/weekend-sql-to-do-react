@@ -4,7 +4,7 @@ CREATE TABLE "tasks" (
   start_date DATE NOT NULL,
   end_date DATE NOT NULL,
   priority TEXT NOT NULL,
-  assigned_ user TEXT NOT NULL,
+  assigned_user TEXT NOT NULL,
   finished_date DATE,
   completed BOOLEAN
  
