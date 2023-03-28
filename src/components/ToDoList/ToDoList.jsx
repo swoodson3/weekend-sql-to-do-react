@@ -28,7 +28,6 @@ function ToDoList() {
                     return 0;
                 });
                 setListOfTasks(sortedTasks);
-                console.log('why am i not working ')
             })
             .catch((error) => {
                 console.log(`Error in GET ${error}`);
@@ -45,7 +44,7 @@ function ToDoList() {
         const updatedTask = { completed: !task.completed };
         axios.put(`/tasks/${task.id}`, updatedTask)
             .then((response) => {
-                 console.log(response);
+                console.log(response);
                 tasksList();
             })
             .catch((error) => {
@@ -60,7 +59,7 @@ function ToDoList() {
             console.log(`Clearing shopping list`);
             axios.delete(`/tasks/${id}`)
                 .then((response) => {
-                     console.log(response);
+                    console.log(response);
                     tasksList();
                 }).catch((error) => {
                     console.log(error)
@@ -86,7 +85,7 @@ function ToDoList() {
                 setFinishedDate={setFinishedDate}
                 completed={completed}
                 setCompleted={setCompleted}
-                tasksList={tasksList}
+            // tasksList={tasksList}
             />
             <table className="my-table">
                 <thead>
@@ -103,11 +102,25 @@ function ToDoList() {
                 </thead>
                 <tbody>
                     {
-                        listOfTasks.map((task) => {
-                            <ToDoListItem task={task} toggleCompleted={toggleCompleted} deleteList={deleteList} />
-                        })
+                        listOfTasks.map((task) => (
+                            <ToDoListItem 
+                            key={task.id}
+                            task={task} 
+                            toggleCompleted={toggleCompleted} 
+                            deleteList={deleteList} 
+                            />
+                        ))
                     }
                 </tbody>
+
+                {/* <tbody>
+                    {
+                        listOfTasks.map((task) => {
+                            return (
+                            <ToDoListItem task={task} toggleCompleted={toggleCompleted} deleteList={deleteList} />
+                        )})
+                    }
+                </tbody> */}
             </table>
         </>
     )
