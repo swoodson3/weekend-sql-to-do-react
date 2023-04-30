@@ -5,6 +5,7 @@ import ToDoListItem from './ToDoListItem.jsx';
 import ToDoListForm from '../ToDoListForm/ToDoListForm.jsx';
 
 
+
 function ToDoList() {
     const [taskList, setTaskList] = useState('');
     const [startDate, setStartDate] = useState('');
@@ -112,15 +113,6 @@ function ToDoList() {
                         ))
                     }
                 </tbody>
-
-                {/* <tbody>
-                    {
-                        listOfTasks.map((task) => {
-                            return (
-                            <ToDoListItem task={task} toggleCompleted={toggleCompleted} deleteList={deleteList} />
-                        )})
-                    }
-                </tbody> */}
             </table>
         </>
     )

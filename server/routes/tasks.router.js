@@ -8,7 +8,6 @@ const dateTime = luxon.DateTime;
 // GET
 router.get('/', (req, res) => {
     console.log('GET Request made for /tasks');
-    console.log('Seth')
     const sqlText = `SELECT * FROM "tasks" ORDER BY id DESC;`;
     pool.query(sqlText)
         .then((result) => {
@@ -38,6 +37,8 @@ router.post('/', (req, res) => {
 });
 
 // PUT
+
+// Can make 2 puts with one being complete/:id and uncomplete/:id 
 router.put('/:id', (req, res) => {
     console.log(`In PUT Request /task`);
     let taskId = req.params.id;

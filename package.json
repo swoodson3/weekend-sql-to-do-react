@@ -4,6 +4,10 @@
   "private": true,
   "proxy": "http://localhost:5017",
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.11.15",
     "axios": "^0.19.2",
     "luxon": "^3.3.0",
     "pg": "^8.2.1",
