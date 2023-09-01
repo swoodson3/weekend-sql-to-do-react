@@ -1,6 +1,4 @@
-# Project Name
-
-To-Do-List
+# To-Do-List
 
 ## Description
 
